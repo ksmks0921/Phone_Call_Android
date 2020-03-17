@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             android:layout_above="@+id/tv_call_number"
             android:gravity="center"
-            android:text="来电号码"
+            android:text="Caller number"
             android:textColor="@android:color/white"
             android:textSize="18sp" />
 
@@ -47,7 +47,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="24dp"
-            android:text="通话中：01:33"
+            android:text="calling：01:33"
             android:visibility="gone"
             tools:visibility="visible" />
 
@@ -65,7 +65,7 @@
                 android:foreground="?android:attr/selectableItemBackground"
                 android:gravity="center"
                 android:padding="8dp"
-                android:text="挂  断"
+                android:text="hang up"
                 android:textColor="@android:color/black"
                 tools:visibility="visible" />
 
@@ -80,7 +80,7 @@
                 android:foreground="?android:attr/selectableItemBackground"
                 android:gravity="center"
                 android:padding="8dp"
-                android:text="接  听"
+                android:text="Answer"
                 android:textColor="@android:color/black"
                 android:visibility="gone"
                 tools:visibility="visible" />

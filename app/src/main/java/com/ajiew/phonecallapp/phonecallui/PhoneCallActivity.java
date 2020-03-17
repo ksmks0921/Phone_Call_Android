@@ -23,7 +23,7 @@ import static com.ajiew.phonecallapp.listenphonecall.CallListenerService.formatP
 
 
 /**
- * 提供接打电话的界面，仅支持 Android M (6.0, API 23) 及以上的系统
+ * Provides the interface to make and receive calls, only supports Android M (6.0, API 23) and above systems
  *
  * @author aJIEw
  */
@@ -91,14 +91,14 @@ public class PhoneCallActivity extends AppCompatActivity implements View.OnClick
         tvPickUp.setOnClickListener(this);
         tvHangUp.setOnClickListener(this);
 
-        // 打进的电话
+        // Incoming call
         if (callType == PhoneCallService.CallType.CALL_IN) {
-            tvCallNumberLabel.setText("来电号码");
+            tvCallNumberLabel.setText("Caller number");
             tvPickUp.setVisibility(View.VISIBLE);
         }
         // 打出的电话
         else if (callType == PhoneCallService.CallType.CALL_OUT) {
-            tvCallNumberLabel.setText("呼叫号码");
+            tvCallNumberLabel.setText("Call number");
             tvPickUp.setVisibility(View.GONE);
             phoneCallManager.openSpeaker();
         }
@@ -151,7 +151,7 @@ public class PhoneCallActivity extends AppCompatActivity implements View.OnClick
                         @Override
                         public void run() {
                             callingTime++;
-                            tvCallingTime.setText("通话中：" + getCallingTime());
+                            tvCallingTime.setText("calling：" + getCallingTime());
                         }
                     });
                 }

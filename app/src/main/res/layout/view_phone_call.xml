@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/tv_call_number"
         android:gravity="center"
-        android:text="打开 Phone Call App"
+        android:text="turn on Phone Call App"
         android:textAlignment="center"
         android:textSize="16sp" />
 

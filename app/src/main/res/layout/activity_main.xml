@@ -18,7 +18,7 @@
         android:layout_below="@id/tv_title"
         android:layout_marginTop="8dp"
         android:gravity="center"
-        android:text="By aJIEw" />
+        android:text="By CryStal" />
 
     <Switch
         android:id="@+id/switch_default_phone_call"
@@ -27,7 +27,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginTop="16dp"
-        android:text="设为默认电话应用" />
+        android:text="Set as default phone app" />
 
     <Switch
         android:id="@+id/switch_call_listenr"
@@ -37,5 +37,5 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginRight="16dp"
-        android:text="开启电话监听服务" />
+        android:text="Enable phone monitoring service" />
 </RelativeLayout>

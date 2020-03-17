@@ -8,7 +8,7 @@ import android.telecom.InCallService;
 import com.ajiew.phonecallapp.ActivityStack;
 
 /**
- * 监听电话通信状态的服务，实现该类的同时必须提供电话管理的 UI
+ * A service that monitors the communication status of the phone. To implement this class, you must provide a UI for phone management.
  *
  * @author aJIEw
  * @see PhoneCallActivity
