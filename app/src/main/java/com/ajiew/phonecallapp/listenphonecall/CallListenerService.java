@@ -56,7 +56,7 @@ public class CallListenerService extends Service {
     }
 
     /**
-     * 初始化来电状态监听器
+     * Initialize call status listener
      */
     private void initPhoneStateListener() {
         phoneStateListener = new PhoneStateListener() {
@@ -89,7 +89,7 @@ public class CallListenerService extends Service {
             }
         };
 
-        // 设置来电监听器
+        // Set up call listener
         telephonyManager = (TelephonyManager) getSystemService(TELEPHONY_SERVICE);
         if (telephonyManager != null) {
             telephonyManager.listen(phoneStateListener, PhoneStateListener.LISTEN_CALL_STATE);
@@ -109,18 +109,18 @@ public class CallListenerService extends Service {
         params.height = WindowManager.LayoutParams.WRAP_CONTENT;
         params.screenOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT;
 
-        // 设置图片格式，效果为背景透明
+        // Set the picture format, the effect is transparent background
         params.format = PixelFormat.TRANSLUCENT;
-        // 设置 Window flag 为系统级弹框 | 覆盖表层
+        // Set Window flag to system-level popup | Overlay
         params.type = Build.VERSION.SDK_INT >= Build.VERSION_CODES.O ?
                 WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY :
                 WindowManager.LayoutParams.TYPE_PHONE;
 
-        // 不可聚集（不响应返回键）| 全屏
+        // Non-aggregatable (no response to return key) | fullscreen
         params.flags = WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE
                 | WindowManager.LayoutParams.FLAG_FULLSCREEN
                 | WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN;
-        // API 19 以上则还可以开启透明状态栏与导航栏
+        // API 19 and above can also open the transparent status bar and navigation bar
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             params.flags = WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS
                     | WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION
@@ -157,7 +157,7 @@ public class CallListenerService extends Service {
     }
 
     /**
-     * 显示顶级弹框展示通话信息
+     * Display top popup box to display call information
      */
     private void show() {
         if (!hasShown) {
@@ -167,7 +167,7 @@ public class CallListenerService extends Service {
     }
 
     /**
-     * 取消显示
+     * Cancel display
      */
     private void dismiss() {
         if (hasShown) {

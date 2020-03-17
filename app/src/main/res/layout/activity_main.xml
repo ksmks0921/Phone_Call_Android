@@ -35,7 +35,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/switch_default_phone_call"
         android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
         android:layout_marginTop="16dp"
+        android:layout_marginRight="16dp"
         android:text="开启电话监听服务" />
 </RelativeLayout>
