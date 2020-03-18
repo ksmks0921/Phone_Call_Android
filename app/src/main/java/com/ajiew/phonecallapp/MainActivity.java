@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         switchListenCall = findViewById(R.id.switch_call_listenr);
 
         switchPhoneCall.setOnClickListener(v -> {
-            // 发起将本应用设为默认电话应用的请求，仅支持 Android M 及以上
+            // Request to make this app the default phone app, only Android M and above are supported
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 if (switchPhoneCall.isChecked()) {
                     Intent intent = new Intent(TelecomManager.ACTION_CHANGE_DEFAULT_DIALER);
@@ -51,24 +51,24 @@ public class MainActivity extends AppCompatActivity {
                             getPackageName());
                     startActivity(intent);
                 } else {
-                    // 取消时跳转到默认设置页面
+                    // Jump to the default settings page when canceling
                     startActivity(new Intent("android.settings.MANAGE_DEFAULT_APPS_SETTINGS"));
                 }
             } else {
-                Toast.makeText(MainActivity.this, "Android 6.0 以上才支持修改默认电话应用！", Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this, "Android 6.0 Only the above supports modifying the default phone application！", Toast.LENGTH_LONG).show();
                 switchPhoneCall.setChecked(false);
             }
 
         });
 
-        // 使用使用 SettingsCompat 检查是否开启了权限
+        // Check if permissions are enabled using SettingsCompat
         switchCallCheckChangeListener = (buttonView, isChecked) -> {
             if (isChecked && !SettingsCompat.canDrawOverlays(MainActivity.this)) {
 
-                // 请求 悬浮框 权限
+                // Request hover permissions
                 askForDrawOverlay();
 
-                // 未开启时清除选中状态，同时避免回调
+                // Clear the selected state when not open, while avoiding callbacks
                 switchListenCall.setOnCheckedChangeListener(null);
                 switchListenCall.setChecked(false);
                 switchListenCall.setOnCheckedChangeListener(switchCallCheckChangeListener);
@@ -78,10 +78,10 @@ public class MainActivity extends AppCompatActivity {
             Intent callListener = new Intent(MainActivity.this, CallListenerService.class);
             if (isChecked) {
                 startService(callListener);
-                Toast.makeText(this, "电话监听服务已开启", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Call monitoring service is turned on", Toast.LENGTH_SHORT).show();
             } else {
                 stopService(callListener);
-                Toast.makeText(this, "电话监听服务已关闭", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Call monitoring service is off", Toast.LENGTH_SHORT).show();
             }
         };
         switchListenCall.setOnCheckedChangeListener(switchCallCheckChangeListener);
@@ -89,24 +89,24 @@ public class MainActivity extends AppCompatActivity {
 
     private void askForDrawOverlay() {
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(this)
-                .setTitle("允许显示悬浮框")
-                .setMessage("为了使电话监听服务正常工作，请允许这项权限")
-                .setPositiveButton("去设置", (dialog, which) -> {
+                .setTitle("Allow floating boxes to be displayed")
+                .setMessage("For phone monitoring service to work properly, allow this permission")
+                .setPositiveButton("Go to settings", (dialog, which) -> {
                     openDrawOverlaySettings();
                     dialog.dismiss();
                 })
-                .setNegativeButton("稍后再说", (dialog, which) -> dialog.dismiss());
+                .setNegativeButton("Talk later", (dialog, which) -> dialog.dismiss());
 
         alertDialog.show();
     }
 
     /**
-     * 跳转悬浮窗管理设置界面
+     * Jump to floating window management settings interface
      */
     private void openDrawOverlaySettings() {
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            // Android M 以上引导用户去系统设置中打开允许悬浮窗
-            // 使用反射是为了用尽可能少的代码保证在大部分机型上都可用
+            // Android M and above guide the user to open the allow floating window in the system settings
+            // Use reflection to guarantee usability on most models with as little code as possible
             try {
                 Context context = this;
                 Class clazz = Settings.class;
@@ -116,10 +116,10 @@ public class MainActivity extends AppCompatActivity {
                 intent.setData(Uri.parse("package:" + context.getPackageName()));
                 context.startActivity(intent);
             } catch (Exception e) {
-                Toast.makeText(this, "请在悬浮窗管理中打开权限", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "Please open permissions in floating window management", Toast.LENGTH_LONG).show();
             }
         } else {
-            // 6.0 以下则直接使用 SettingsCompat 中提供的接口，只有国产手机上才有
+            // Below 6.0, use the interface provided in SettingsCompat directly, only available on domestic mobile phones
             SettingsCompat.manageDrawOverlays(this);
         }
     }
@@ -133,7 +133,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * Android M 及以上检查是否是系统默认电话应用
+     * Android M and above check if it is the system default phone app
      */
     public boolean isDefaultPhoneCallApp() {
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {

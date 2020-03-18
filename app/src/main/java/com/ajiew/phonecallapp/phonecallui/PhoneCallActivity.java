@@ -25,7 +25,7 @@ import static com.ajiew.phonecallapp.listenphonecall.CallListenerService.formatP
 /**
  * Provides the interface to make and receive calls, only supports Android M (6.0, API 23) and above systems
  *
- * @author aJIEw
+ * @author crystal
  */
 @RequiresApi(api = Build.VERSION_CODES.M)
 public class PhoneCallActivity extends AppCompatActivity implements View.OnClickListener {

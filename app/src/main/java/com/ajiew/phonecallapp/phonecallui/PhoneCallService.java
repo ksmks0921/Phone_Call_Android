@@ -10,7 +10,7 @@ import com.ajiew.phonecallapp.ActivityStack;
 /**
  * A service that monitors the communication status of the phone. To implement this class, you must provide a UI for phone management.
  *
- * @author aJIEw
+ * @author crystal
  * @see PhoneCallActivity
  * @see android.telecom.InCallService
  */

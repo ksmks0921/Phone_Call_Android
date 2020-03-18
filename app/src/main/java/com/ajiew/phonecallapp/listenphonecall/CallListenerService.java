@@ -67,17 +67,17 @@ public class CallListenerService extends Service {
                 callNumber = incomingNumber;
 
                 switch (state) {
-                    case TelephonyManager.CALL_STATE_IDLE: // 待机，即无电话时，挂断时触发
+                    case TelephonyManager.CALL_STATE_IDLE: // Standby, that is, when there is no call, trigger when hanging up
                         dismiss();
                         break;
 
-                    case TelephonyManager.CALL_STATE_RINGING: // 响铃，来电时触发
+                    case TelephonyManager.CALL_STATE_RINGING: // Ring, triggered on incoming call
                         isCallingIn = true;
                         updateUI();
                         show();
                         break;
 
-                    case TelephonyManager.CALL_STATE_OFFHOOK: // 摘机，接听或拨出电话时触发
+                    case TelephonyManager.CALL_STATE_OFFHOOK: // Triggered when going off-hook, answering or making a call
                         updateUI();
                         show();
                         break;
