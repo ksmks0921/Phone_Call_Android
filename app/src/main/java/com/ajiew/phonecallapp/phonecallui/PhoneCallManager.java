@@ -48,7 +48,6 @@ public class PhoneCallManager {
             audioManager.setSpeakerphoneOn(true);
         }
     }
-
     /**
      * Destruction of resources
      * */
