@@ -31,7 +31,6 @@ public class PhoneCallManager {
             openSpeaker();
         }
     }
-
     /**
      * Disconnect calls, including rejection of incoming calls and hang up after answering
      */
@@ -40,7 +39,6 @@ public class PhoneCallManager {
             call.disconnect();
         }
     }
-
     /**
      * Open handsfree
      */
