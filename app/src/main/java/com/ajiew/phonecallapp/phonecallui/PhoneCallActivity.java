@@ -96,7 +96,7 @@ public class PhoneCallActivity extends AppCompatActivity implements View.OnClick
             tvCallNumberLabel.setText("Caller number");
             tvPickUp.setVisibility(View.VISIBLE);
         }
-        // 打出的电话
+        // Outgoing call
         else if (callType == PhoneCallService.CallType.CALL_OUT) {
             tvCallNumberLabel.setText("Call number");
             tvPickUp.setVisibility(View.GONE);
