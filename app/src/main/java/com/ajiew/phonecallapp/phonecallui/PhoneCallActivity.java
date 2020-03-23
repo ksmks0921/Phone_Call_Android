@@ -27,6 +27,7 @@ import static com.ajiew.phonecallapp.listenphonecall.CallListenerService.formatP
  *
  * @author Crystal
  */
+
 @RequiresApi(api = Build.VERSION_CODES.M)
 public class PhoneCallActivity extends AppCompatActivity implements View.OnClickListener {
 
