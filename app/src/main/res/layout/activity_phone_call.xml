@@ -2,43 +2,48 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
     tools:context=".phonecallui.PhoneCallActivity">
 
-    <RelativeLayout
+    <LinearLayout
         android:id="@+id/rl_user_info"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
         android:background="@color/colorPrimaryDark">
+
 
         <TextView
             android:id="@+id/tv_call_number_label"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_above="@+id/tv_call_number"
+            android:layout_marginBottom="-2dp"
             android:gravity="center"
             android:text="Caller number"
+            android:layout_gravity="center"
             android:textColor="@android:color/white"
+            android:layout_marginLeft="20dp"
             android:textSize="18sp" />
-
 
         <TextView
             android:id="@+id/tv_call_number"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:gravity="center"
+            android:layout_gravity="center"
             android:textAlignment="center"
             android:textColor="@android:color/white"
             android:textSize="28sp"
+            android:layout_marginLeft="20dp"
             tools:text="133-9527-9527" />
 
-    </RelativeLayout>
+    </LinearLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="200dp"
         android:background="@android:color/white">
 
         <TextView
@@ -46,7 +51,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="10dp"
             android:text="calling：01:33"
             android:visibility="gone"
             tools:visibility="visible" />
@@ -60,8 +65,8 @@
                 android:id="@+id/tv_phone_hang_up"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawablePadding="16dp"
                 android:drawableTop="@drawable/ic_phone_hang_up"
+                android:drawablePadding="12dp"
                 android:foreground="?android:attr/selectableItemBackground"
                 android:gravity="center"
                 android:padding="8dp"
@@ -75,8 +80,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="50dp"
                 android:layout_toRightOf="@id/tv_phone_hang_up"
-                android:drawablePadding="16dp"
                 android:drawableTop="@drawable/ic_phone_pick_up"
+                android:drawablePadding="16dp"
                 android:foreground="?android:attr/selectableItemBackground"
                 android:gravity="center"
                 android:padding="8dp"

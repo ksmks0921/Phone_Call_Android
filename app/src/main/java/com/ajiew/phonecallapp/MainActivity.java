@@ -145,7 +145,7 @@ public class MainActivity extends AppCompatActivity {
         return false;
     }
 
-    
+
     public boolean isServiceRunning(Class<?> serviceClass) {
         ActivityManager manager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
         if (manager == null) return false;
