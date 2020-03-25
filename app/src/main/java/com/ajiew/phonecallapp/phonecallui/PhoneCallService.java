@@ -169,8 +169,6 @@ public class PhoneCallService extends InCallService  {
                         | WindowManager.LayoutParams.FLAG_FULLSCREEN
                         | WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN;
             }
-
-
             windowManager.addView(phoneCallView, params);
 
 
